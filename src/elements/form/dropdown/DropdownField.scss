@@ -1,0 +1,87 @@
+@import "config/color";
+
+.dropdown {
+  position: relative;
+}
+
+.wrapper{
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: honeydew;
+  font-size: 16px;
+  border-radius: 2px;
+  outline: none;
+
+  &Focus {
+    transform: translateY(-1px) scale(1.003);
+    box-shadow: -4px 4px 6px 0 rgba(86, 116, 138, 0.16), 0 0 0 1px $color-blue;
+    border-radius: 2px 2px 0 0;
+  }
+}
+
+.trigger {
+  width: 30px;
+  padding-top: 11px;
+  line-height: 0;
+  background: $color-white;
+  color: $color-gray;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+
+  &:hover{
+  color: darken($color-gray, 10%);
+}
+}
+
+.input {
+  flex: 1;
+  width: 100%;
+  font-size: 16px;
+  line-height: 18px;
+  border: none;
+  color: $color-black;
+  background-color: $color-white;
+  font-weight: 300;
+  user-select: text;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-align: start;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  padding: 10px;
+
+  &:active,
+  &:focus {
+    border: none;
+    box-shadow:none;
+    outline: none;
+  }
+}
+
+.panel {
+  min-height: 40px;
+  max-height: 300px;
+  z-index: 1000;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-top: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 2px 2px;
+  background-color: #ffffff;
+}

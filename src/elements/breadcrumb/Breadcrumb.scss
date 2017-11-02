@@ -1,0 +1,60 @@
+
+.breadcrumb {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item {
+  vertical-align: middle;
+  padding-right: 8px;
+  color: dodgerblue;
+  white-space: nowrap;
+  display: none;
+
+  &::before,
+  &::after {
+    color: silver;
+  }
+
+  &::after {
+    content: ' › ';
+  }
+
+  &:last-of-type {
+    color: black;
+
+    &::after {
+      content: '';
+    }
+  }
+
+  &:first-child,
+  &:nth-last-child(1),
+  &:nth-last-child(2) {
+    display: inline-block;
+    width: auto;
+
+    &::before {
+      content: '';
+    }
+  }
+
+  &:nth-last-child(n+3):nth-child(2) {
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+
+    font-size: 0;
+  }
+
+  &::before {
+    content: '...';
+  }
+
+}

@@ -1,0 +1,19 @@
+.group {
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.tag{
+  padding: 0.2em 1.1em;
+  font-size: 70%;
+  color: #fff;
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  margin-right: 3px;
+}

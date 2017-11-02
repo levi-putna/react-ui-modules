@@ -1,0 +1,107 @@
+@import "config/color";
+
+.toggle {
+  display: inline-block;
+  width: 50px;
+  padding: 2px;
+  background:$color-red;
+  border-radius: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+
+  font: 14px Arial, sans-serif;
+
+  &Checked {
+    background-color:$color-green;
+  }
+
+  &:disabled,
+  &Disabled{
+    background: $color-gray;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
+.slider {
+  width: 18px;
+  height: 18px;
+  background-color:$color-white;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-left: 32px;
+  transition: all 0.3s ease;
+
+  &Checked {
+    margin-left: 0;
+  }
+
+  &::before {
+    content: "Off";
+    left: -30px;
+    color:$color-white;
+  }
+
+  &::after {
+    content: "On";
+    right: -30px;
+    color: $color-white;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    display: inline-block;
+    width: 28px;
+    text-align: center;
+    line-height: 18px;
+  }
+
+
+}
+
+.trueFalse {
+
+  &::before {
+    content: "False";
+  }
+
+  &::after {
+    content: "True";
+  }
+
+  &::before,
+  &::after {
+    font-size: 0.7rem;
+  }
+
+}
+
+.yesNo {
+
+  &::before {
+    content: "No";
+  }
+
+  &::after {
+    content: "Yes";
+  }
+
+}
+
+.greenRed {
+
+  &::before {
+    content: "";
+  }
+
+  &::after {
+    content: "";
+  }
+
+}

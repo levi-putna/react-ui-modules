@@ -1,0 +1,57 @@
+@import "config/color";
+
+
+.panel {
+  min-height: 150px;
+  max-height: 300px;
+}
+
+.list {
+  z-index: 1000;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-top: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 2px 2px;
+  background-color: #ffffff;
+}
+
+.option{
+  padding: 0.4em 0.7em;
+  display: block;
+  white-space: nowrap;
+  color: inherit;
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &:hover{
+    background: $color-blue-light;
+    color: inherit;
+  }
+
+  &Selected{
+    background: $color-blue;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.icon {
+  color: $color-gray;
+  width: 15px;
+  margin: auto 7px auto 0;
+  display: inline-block;
+  vertical-align: middle;
+
+  &Selected {
+    color: $color-red;
+  }
+}

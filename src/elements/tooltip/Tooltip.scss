@@ -1,0 +1,54 @@
+.tooltip {
+  z-index: 1070;
+  display: none;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.5;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  font-size: .875rem;
+  word-wrap: break-word;
+  opacity: 0;
+  padding: 0 5px;
+  margin-left: 3px;
+  top: 0;
+  left: 0;
+  position: fixed;
+
+  &Open {
+    display: block;
+    opacity: .9;
+  }
+
+  &:before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    content: "";
+    border-width: 5px 5px 5px 0;
+    border-right-color: #000;
+  }
+}
+
+.content {
+  max-width: 300px;
+  min-width: 150px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  border-radius: .25rem;
+}

@@ -1,0 +1,190 @@
+@import "config/color";
+@import "config/typography";
+
+.button {
+  display: inline-block;
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 17px;
+  margin: 10px 3px;
+  color: $color-white;
+  border: none rgba(0, 0, 0, 0);
+  background-color: $color-blue;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.1s ease-out 0s, all 0.1s ease-out 0s;
+  box-shadow: 0 1px 1px $color-shadwo;
+
+  &:hover, &Hover {
+    background-color: $color-blue-dark;
+    transform: translateY(-1px) scale(1.005);
+    box-shadow: -2px 4px 2px 1px $color-shadwo-hover;
+  }
+
+  /* Firefox: Get rid of the inner focus border */
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:focus, &Focus {
+    outline: 0;
+  }
+
+  &:active, &Active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+    border-color: #000 \9
+  ;
+    transform: none;
+  }
+
+  &[disabled], &Disabled {
+    border: none;
+    background-color: $color-gray;
+    color: darken($color-gray, 20%);
+    background-image: none;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /*
+   * Appearance modifiers
+   */
+  &Loading {
+    animation: 2s button-bulge infinite ease-out;
+  }
+
+  &Hidden {
+    display: none;
+  }
+
+  &Block {
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    width: 100%;
+  }
+
+  &Tiny {
+    font-size: $font-tiny;
+    padding: 4px 17px;
+  }
+
+  &Small {
+    font-size: $font-small;
+    padding: 6px 17px;
+  }
+
+  &Large {
+    font-size: $font-large;
+    padding: 10px 22px;
+  }
+
+  &Huge {
+    font-size: $font-huge;
+    padding: 12px 24px;
+  }
+
+  /**
+   * Button modifier
+   */
+  &Primary {
+    background-color: $color-purple;
+
+    &:hover {
+      background-color: #684588;
+    }
+  }
+
+  &Secondary {
+    background-color: $color-blue;
+
+    &:hover {
+      background-color: $color-blue-dark;
+    }
+  }
+
+  &Dark {
+    background-color: $color-gray-dark;
+
+    &:hover {
+      background-color: darken($color-gray-dark, 15%);
+    }
+  }
+
+  &Light {
+    background-color: $color-gray-light;
+    color: $color-gray-dark;
+
+    &:hover {
+      background-color: $color-gray;
+      color: $color-white;
+    }
+  }
+
+  &Success {
+    background-color: $color-green;
+
+    &:hover {
+      color: #ffffff;
+      background-color: $color-green-dark;
+    }
+  }
+
+  &Warning {
+    background-color: $color-orange;
+
+    &:hover {
+      background-color: $color-orange-dark;
+    }
+  }
+
+  &Alert {
+    background-color: $color-red;
+
+    &:hover {
+      background-color: $color-red-dark;
+    }
+  }
+
+  &Plain {
+    background-color: transparent;
+    color: $color-blue-dark;
+    box-shadow: none;
+    border: none;
+    border-width: 0;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+}
+
+.loading {
+  position: absolute;
+  margin: 10% 0;
+  top: 0;
+  left: 0;
+  height: 60%;
+  width: 100%;
+}

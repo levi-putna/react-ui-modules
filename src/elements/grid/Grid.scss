@@ -1,0 +1,99 @@
+$columns: 12;
+$gutter: 1rem;
+$margin: 2rem;
+$half-gutter: $gutter / 2;
+$gutter-compensation: -1 * $half-gutter;
+$viewport: ("xs":(), "sm":("min-width":25rem), "md":("min-width":50rem), "lg":("min-width":90rem));
+
+.grid {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+
+  &Fluid {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $margin;
+    padding-right: $margin;
+  }
+}
+
+.row {
+  flex-direction: horizontal;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+.col {
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: $half-gutter;
+  padding-left: $half-gutter;
+  width: 100%;
+}
+
+@mixin grid-row() {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+@mixin grid-column() {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: $half-gutter;
+  padding-left: $half-gutter;
+}
+
+@mixin grid-column-offset($columns-to-offset, $total-columns-in-row:12) {
+  margin-left: ($columns-to-offset / $total-columns-in-row) * 100%;
+}
+
+@mixin grid-column-span($columns-to-span:12, $total-columns-in-row:12) {
+  @if ($columns-to-span == auto) {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  } @else {
+    $span-percentage: $columns-to-span / $total-columns-in-row;
+    flex-basis: $span-percentage * 100%;
+    max-width: $span-percentage * 100%;
+  }
+}
+
+@mixin viewport-layout($key) {
+  .#{$key}0 {
+    flex-basis: 0;
+    max-width: 0;
+    width: 0;
+    border: 0 !important;
+  }
+  @for $i from 1 through $columns {
+    .#{$key}#{$i} {
+      @include grid-column-span($i);
+    }
+  }
+}
+
+@each $key, $value in $viewport {
+  @if ($key == xs) {
+    @include viewport-layout($key);
+  } @else {
+    $min-width: map-get($value, "min-width");
+    @media screen and (min-width: $min-width) {
+      @include viewport-layout($key);
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import "config/color";
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: honeydew;
+  font-size: 16px;
+  border-radius: 2px;
+  outline: none;
+
+  &Focus {
+    transform: translateY(-1px) scale(1.003);
+    box-shadow: -4px 4px 6px 0 rgba(86, 116, 138, 0.16), 0 0 0 1px $color-blue;
+  }
+
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 100px;
+  font-size: 16px;
+  border: none;
+  color: $color-black;
+  font-weight: 300;
+  user-select: text;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-align: start;
+  box-sizing: border-box;
+  transition: all 0.3s;
+
+  &:active,
+  &:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.tags {
+  background-color: $color-white;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 6px 0 6px 6px;
+  margin: 0;
+}
+
+.tag {
+  color: $color-white;
+  background-color: $color-blue;
+  margin: 2px;
+  font-size: 70%;
+  align-items: center;
+  border-radius: 20px;
+  display: inline-flex;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.875em;
+  padding-right: 0.875em;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.delete {
+  height: 16px;
+  width: 16px;
+  margin-left: 0.25em;
+  margin-right: -0.375em;
+  user-select: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  outline: none;
+  position: relative;
+  vertical-align: top;
+
+  &:hover {
+    background-color: rgba(10, 10, 10, 0.2);
+  }
+
+  &:active {
+    background-color: rgba(10, 10, 10, 0.4);
+  }
+
+  &:before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+    height: 2px;
+    width: 50%;
+    background-color: white;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+  }
+
+  &:after {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+    height: 50%;
+    width: 2px;
+    background-color: white;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+  }
+
+}

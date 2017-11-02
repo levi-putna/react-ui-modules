@@ -1,0 +1,99 @@
+@import "config/color";
+@import "config/typography";
+
+.wrapper {
+  width: 100%;
+  margin: 0;
+  padding:0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  display: table;
+  text-align: left;
+}
+
+.label {
+  width: 100%;
+  margin: 10px 1px;
+  padding: 0;
+  border: 0;
+  display: block;
+  color: $color-gray;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 1px;
+  vertical-align: baseline;
+  cursor: default;
+  transition: all 0.3s;
+
+  &Focus {
+    color: $color-blue;
+  }
+
+  &Error {
+    color: $color-red;
+  }
+}
+
+.input {
+  width: 100%;
+  color: $color-black;
+  margin-top: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: honeydew;
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 16px;
+  border-radius: 2px;
+  outline: none;
+  font-weight: 300;
+  user-select: text;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-align: start;
+  box-sizing: border-box;
+  transition: all 0.3s;
+
+  &:active,
+  &Active,
+  &:focus,
+  &Focus{
+    transform: translateY(-1px) scale(1.003);
+    box-shadow: -4px 4px 6px 0 rgba(86, 116, 138, 0.16), 0 0 0 1px $color-blue;
+  }
+
+  &:disabled,
+  &Disabled{
+    background: $color-gray-light;
+  }
+
+  &::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  &Error {
+    color: $color-red;
+  }
+}
+
+.error, .hint {
+  margin-top: 5px;
+  margin-left: 1px;
+  line-height: 12px;
+  font-size: 12px;
+  display: block;
+}
+
+.error {
+  color: $color-red;
+}
+
+.hint {
+  color: $color-gray;
+}
