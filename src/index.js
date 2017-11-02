@@ -18,6 +18,7 @@ import {SelectField} from "./elements/form/select";
 
 // Grid
 import {Grid, Row, Col} from "./elements/grid";
+import {Box} from "./elements/box";
 
 // Icon
 import {Icon, IconType} from './elements/icon';
@@ -61,6 +62,7 @@ module.exports = {
     Grid,
     Row,
     Col,
+    Box,
 
     Icon,
     IconType,

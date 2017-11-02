@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+
+  &Reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.row {
+  &Reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.column {
+  flex-direction: column;
+
+  &Reverse {
+    flex-direction: column-reverse;
+  }
+}
