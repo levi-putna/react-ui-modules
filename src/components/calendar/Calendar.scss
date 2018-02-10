@@ -1,0 +1,212 @@
+@import "config/color";
+
+.container {
+  width: 100%;
+}
+
+.header {
+  background-color: rgb(68, 138, 255);
+  color: rgb(255, 255, 255);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 50px;
+  padding: 10px 5px;
+  font-weight: 400;
+}
+
+// Header elements
+
+.header {
+  background-color: rgb(68, 138, 255);
+  color: rgb(255, 255, 255);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 50px;
+  padding: 10px 5px;
+  font-weight: 400;
+
+  &Year {
+    font-size: 12px;
+    line-height: 12px;
+    color: hsla(0, 0%, 100%, .5);
+  }
+
+  &Month {
+    font-size: 22px;
+    line-height: 22px;
+    text-transform: capitalize;
+  }
+}
+
+.navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 .5rem;
+  top: 1.1rem;
+
+  &Back, &Forward {
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+
+    }
+
+  }
+
+  &Back {
+    left: .8rem;
+
+    &:active {
+      transform: translateX(-2px);
+    }
+
+  }
+
+  &Forward {
+    right: .8rem;
+
+    &:active {
+      transform: translateX(2px);
+    }
+  }
+}
+
+.weekdays {
+  position: relative;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, .04);
+  background-color: rgb(85, 159, 255);
+  color: #ffffff;
+  font-size: 12px;
+
+  &Day {
+    padding: 6px 0;
+    flex-grow: 1;
+    width: 14.28571%;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+.calendar {
+  display: block;
+
+  &Days {
+    display: block;
+  }
+}
+
+.week {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1 0 0;
+  overflow: hidden;
+  height: 100%;
+
+  &Days {
+    border-bottom: 1px solid #e9e9e9;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  &Day {
+    position: relative;
+    flex-grow: 1;
+    padding: 2px;
+    min-height: 10em;
+    width: 14.28571%;
+    list-style: none;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    user-select: none;
+    font-weight: 300;
+    border-right: 1px solid #e9e9e9;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &Other {
+      background-color: #f2f4f8;
+      color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    &Today {
+      background: #fcf8e3;
+    }
+
+  }
+
+  &Events{
+    position: relative;
+    z-index: 4;
+  }
+}
+
+.events {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  margin-top:30px;
+}
+
+.event {
+  width: 100%;
+  display: inline-block;
+  background-color: #3584ff;
+  vertical-align: middle;
+  box-shadow: 2px 2px 6px 0 $color-shadwo;
+  border: none;
+  padding: 0;
+  margin: 2px 0;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+
+  &Row{
+    width: 100%;
+  }
+
+  &Start {
+    border-bottom-left-radius : 4px;
+    border-top-left-radius: 4px;
+  }
+
+  &End {
+    border-bottom-right-radius : 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &Label {
+    width: 100%;
+    vertical-align: middle;
+    padding-left: 10px;
+    white-space: nowrap;
+  }
+}
+
+

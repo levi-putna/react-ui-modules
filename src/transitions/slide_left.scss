@@ -1,0 +1,40 @@
+.enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.leave {
+  opacity: 0.5;
+
+  &Active {
+    opacity: 1;
+    animation: bounceOut 1s cubic-bezier(.62, 1.83, .58, .77);
+  }
+}
+
+.appear {
+  transform: translate3d(100%, 0, 0);
+
+  &Active {
+    animation: bounceIn 1s cubic-bezier(.62, 1.83, .58, .77);
+  }
+}
+
+@-webkit-keyframes bounceIn {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes bounceOut {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2, 2);
+  }
+}

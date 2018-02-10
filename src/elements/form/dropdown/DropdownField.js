@@ -175,9 +175,7 @@ export default class DropdownField extends Field {
     handleKeyPress(event) {
     }
 
-    renderIcon(){
-
-    }
+    renderIcon(){}
 
     /**
      * Render the content of the drop down panel used to select the field value.

@@ -16,13 +16,13 @@ const propTypes = {
     )
 };
 
-const Title = ({label, icon, className}) => {
-
+const Title = (props) => {
+    const {label, icon, className, id} = props;
     const classes = classNames(style.title, className);
 
     return (
-        <h2 className={classes}>
-            {(icon) ? <Icon tyle={icon}/> : ''} {label}
+        <h2 {...props} className={classes}>
+            {(icon) ? <Icon type={icon}/> : ''} {label}
         </h2>
     );
 };

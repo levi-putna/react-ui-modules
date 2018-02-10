@@ -1,0 +1,72 @@
+@import "config/color";
+@import "config/typography";
+
+.container {
+  min-width: 50px;
+  min-height: 50px;
+  border-width: 2px;
+  border-color: #666;
+  border-style: dashed;
+  border-radius: 5px;
+  position: relative;
+
+  &:hover {
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .icon, .title, .message {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+  }
+
+}
+
+.active {
+  border-style: solid;
+  background-color: #eee
+}
+
+.reject {
+  border-style: solid;
+  background-color: #ffdddd;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.0);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  padding-top: 10px;
+  font-size: 40px;
+  display: block;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 80%;
+  padding: 3px 10px;
+}
+
+.message {
+  font-size: 60%;
+  padding: 3px 20px;
+}
+
+.icon, .title, .message {
+  color: rgba(255, 255, 255, 0.0);
+}

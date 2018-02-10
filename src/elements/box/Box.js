@@ -93,6 +93,12 @@ export default class Box extends Component {
          * * y - or vertical to enable vertical scrolling only
          */
         //scrollable
+
+        /**
+         * Specifies the length of the item, relative to the rest of the flexible Box items inside the same container.
+         * Defaults to `auto`
+         */
+        flex: PropTypes.number
     };
 
     static defaultProps = {
@@ -102,11 +108,12 @@ export default class Box extends Component {
         wrap: null,
         direction: null,
         height: null,
-        width: null
+        width: null,
+        flex: null
     };
 
     generateStyle(){
-        const {height, minHeight, maxHeight, width, minWidth, maxWidth, direction} = this.props;
+        const {height, minHeight, maxHeight, width, minWidth, maxWidth, direction, flex} = this.props;
 
         return {
             height,
@@ -115,17 +122,17 @@ export default class Box extends Component {
             width,
             minWidth,
             maxWidth,
+            flex,
 
             flexDirection:direction
         }
     }
 
-    render() {
-
-        const {children, className, fill, center, wrap, direction} = this.props;
+    renderBox(content){
+        const {className, fill, center, wrap, direction} = this.props;
 
         const classes = classNames(style.container, {
-             [style.fill]: fill,
+            [style.fill]: fill,
             [style.center]: center,
             [style.wrap]: (wrap === Box.WRAP.WRAP),
             [style.wrapReverse]: (wrap === Box.WRAP.REVERSE),
@@ -138,9 +145,14 @@ export default class Box extends Component {
 
         return (
             <div style={inlineStyle} className={classes}>
-                {children}
+                {content}
             </div>
         )
+    }
+
+    render() {
+        const {children} = this.props;
+        return this.renderBox(children);
     }
 }
 

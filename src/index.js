@@ -15,10 +15,14 @@ import {TagField} from "./elements/form/tag";
 import {DropdownField} from "./elements/form/dropdown";
 import {DateField} from "./elements/form/date";
 import {SelectField} from "./elements/form/select";
+import {PasswordField} from "./elements/form/password";
+import {Dropzone} from "./elements/form/dropzone";
 
-// Grid
+// Layout Components
 import {Grid, Row, Col} from "./elements/grid";
 import {Box} from "./elements/box";
+import {ListView, ListItem, ListGroup} from "./components/list";
+import {Tab, TabPanel} from "./elements/tab";
 
 // Icon
 import {Icon, IconType} from './elements/icon';
@@ -35,9 +39,11 @@ import {Title, Alert} from './elements/typology';
 // Breadcrumb
 import {Breadcrumb, BreadcrumbItem} from './elements/breadcrumb';
 
-// View Components
-import {ViewComponent} from './components/view';
-import {ListView, ListItem} from './components/list';
+import {Modal, WindowModal, SideModal} from "./components/modal";
+
+import {Carousel} from "./components/carousel";
+
+import {Calendar} from "./components/calendar";
 
 /**
  * All components that will be published as part of this module must be exposed
@@ -58,11 +64,19 @@ module.exports = {
     DropdownField,
     DateField,
     SelectField,
+    PasswordField,
+    Dropzone,
 
     Grid,
     Row,
     Col,
     Box,
+    Tab,
+    TabPanel,
+
+    ListView,
+    ListItem,
+    ListGroup,
 
     Icon,
     IconType,
@@ -72,13 +86,17 @@ module.exports = {
     Tag,
     TagGroup,
 
-    ViewComponent,
-    ListView,
-    ListItem,
-
     Breadcrumb,
     BreadcrumbItem,
 
     Title,
-    Alert
+    Alert,
+
+    Modal,
+    WindowModal,
+    SideModal,
+
+    Carousel,
+
+    Calendar
 };

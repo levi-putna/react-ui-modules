@@ -1,23 +1,26 @@
 @import "config/color";
 
-.alert {
+.container {
 
   padding: 12px 24px 12px 30px;
   margin: 1em 0;
-  border-left: 4px solid $color-red;
-  background-color: #f8f8f8;
+  border-left: 4px solid $color-gray-dark;
+  background-color: $color-gray;
   position: relative;
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
   line-height: 1.6em;
-
   text-align: left;
+  animation-name: float;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
   &:before {
     position: absolute;
     top: 14px;
     left: -15px;
-    background-color: $color-red;
+    background-color: $color-gray-dark;
     color: $color-white;
     content: "!";
     width: 26px;
@@ -58,5 +61,57 @@
     &:before {
       transform: scale(1.25) translateY(0.025em);
     }
+  }
+
+  &:active {
+    &:before {
+      transform: scale(0.9) translateY(0.025em);
+    }
+  }
+}
+
+.alert {
+  &Success {
+    background-color: $color-green;
+    border-color: $color-green-dark;
+    color: #ffffff;
+
+    &:before {
+      background-color: $color-green-dark;
+    }
+  }
+
+  &Warning {
+    background-color: $color-orange;
+    border-color: $color-orange-dark;
+    color: #ffffff;
+
+    &:before {
+      background-color: $color-orange-dark;
+    }
+  }
+
+  &Error {
+    background-color: $color-red;
+    border-color: $color-red-dark;
+    color: #ffffff;
+
+    &:before {
+      background-color: $color-red-dark;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  60% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(-5px);
   }
 }

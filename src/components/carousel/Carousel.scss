@@ -1,0 +1,143 @@
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.slide {
+  top: 50%;
+  transform: translate(0, -50%);
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: inherit;
+  z-index: 0;
+}
+
+.control {
+  z-index: 2;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background: 0 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  border: none;
+  outline: 0;
+  position: absolute;
+  display: block;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  color: #000000;
+  opacity: .25;
+
+  &:hover {
+    opacity: .75;
+  }
+
+  &Back {
+    left: 10px;
+
+    &:active {
+      transform: translate(-2px, -50%);
+    }
+  }
+
+  &Forward {
+    right: 10px;
+
+    &:active {
+      transform: translate(2px, -50%);
+    }
+  }
+
+}
+
+.indicator {
+
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+  transition: opacity 0.2s;
+  bottom: 10px;
+
+  &Dot {
+
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 8px;
+    background: #000000;
+    border-radius: 50%;
+    opacity: 0.25;
+
+    &Active {
+      opacity: 0.75;
+    }
+
+  }
+
+}
+
+.transitionForward {
+
+  &-enter {
+    transform: translate(100%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  &-enter-active {
+    transform: translate(0%);
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-leave {
+    transform: translate(0%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  &-leave-active {
+    transform: translate(-100%);
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.transitionBack {
+
+  &-enter {
+    transform: translate(-100%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  &-enter-active {
+    transform: translate(0%);
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-leave {
+    transform: translate(0%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  &-leave-active {
+    transform: translate(100%);
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+}

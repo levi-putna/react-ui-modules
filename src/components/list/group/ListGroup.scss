@@ -1,0 +1,17 @@
+.container {
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  border-bottom: 1px solid #E6E6E6;
+  background-color: #f0f0f0;
+  padding: 2px 2px 2px 15px;
+  color: #AEB1B8;
+  z-index: 1;
+  height: 20px;
+  max-height: 20px;
+}
+
+.fixed {
+  position: fixed;
+  box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .3);
+}

@@ -144,7 +144,7 @@ class Tooltip extends Component {
     }
 
     render() {
-        const {className, children} = this.props;
+        const {className, children, textId} = this.props;
         const {isOpen} = this.state;
 
         if (!isOpen) {
@@ -157,7 +157,7 @@ class Tooltip extends Component {
         });
 
         return (
-            <div ref={this.setHeight} style={position} className={classes}>
+            <div data-test-id={textId} ref={this.setHeight} style={position} className={classes}>
                 <div className={style.content}>
                     {children}
                 </div>

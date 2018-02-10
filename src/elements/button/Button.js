@@ -12,7 +12,6 @@ import style from './Button.scss';
  */
 export default class Button extends Component {
 
-
     /**
      * Available size options for th buttons.
      *
@@ -41,6 +40,7 @@ export default class Button extends Component {
     };
 
     static propTypes = {
+        ...Component.propTypes,
         loading: PropTypes.bool,
         block: PropTypes.bool,
         className: PropTypes.string,
@@ -49,9 +49,11 @@ export default class Button extends Component {
         type: PropTypes.string,
         children: PropTypes.node.isRequired,
         onClick: PropTypes.func.isRequired,
+        modifier: PropTypes.string,
     };
 
     static defaultProps = {
+        ...Component.defaultProps,
         loading: false,
         size: null,
         modifier: null,
@@ -61,7 +63,7 @@ export default class Button extends Component {
     };
 
     render() {
-        const {className, loading, onClick, disabled, block, size, modifier} = this.props;
+        const {className, loading, onClick, disabled, block, size, modifier, testId} = this.props;
         let {children} = this.props;
 
         const classes = classNames(style.button, size, modifier, {
@@ -70,10 +72,9 @@ export default class Button extends Component {
         }, className);
 
         return (
-            <button disabled={ (disabled || loading) } className={ classes } onClick={onClick}
+            <button data-test-id={testId} disabled={(disabled || loading)} className={classes} onClick={onClick}
                     type="submit">
-                { children }
-                {(loading) ? <div className={style.loading}><Loading/></div> : null}
+                {(loading) ? 'Please wait...' : children}
             </button>
         )
     }

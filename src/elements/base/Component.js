@@ -1,4 +1,5 @@
 import {Component as ReactComponent} from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * The root of all components created.
@@ -14,6 +15,15 @@ import {Component as ReactComponent} from 'react';
  */
 export default class Component extends ReactComponent {
 
+
+    static propTypes = {
+        testId: PropTypes.string
+    };
+
+    static defaultProps = {
+        testId: null,
+    };
+
     constructor(props) {
         super(props);
 
@@ -22,6 +32,7 @@ export default class Component extends ReactComponent {
          * @type {null}
          */
         this.node = null;
+        this.state = {};
     }
 
     /**

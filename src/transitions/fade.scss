@@ -1,0 +1,29 @@
+.enter {
+  opacity: 0.01;
+
+  &Active {
+    transition: opacity 0.2s ease-in;
+    opacity: 1;
+  }
+
+}
+
+.leave {
+  opacity: 1;
+
+  &Active {
+    transition: opacity 0.2s ease-out;
+    opacity: 0.01;
+  }
+
+}
+
+.appear {
+  opacity: 0.01;
+
+  &Active {
+    transition: opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    opacity: 1;
+  }
+
+}

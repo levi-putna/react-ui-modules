@@ -11,6 +11,6 @@ First you need to create a symlink of the library locally (If you’d like to le
 
 You can now run the `yarn build:watch` command, this will keep an eye on any changes and update the build and symlink whenever anything changes. This allows us to develop in the local module, and see the results in our linked project.
 
-Now we’ll tell our other app that we want to use that symlinked library. From the root of your included app run `npm link @levi-putna/react-ui`.
+Now we’ll tell our other app that we want to use that symlinked library. From the root of your included app run `npm link react-ui-modules`.
 
-You can now include the component you wish to work on in your other app `include {Button, Form} from '@levi-putna/react-ui'`. Changes made to the module will be made available to the linked project via the symlink.
+You can now include the component you wish to work on in your other app `include {Button, Form} from 'react-ui-modules'`. Changes made to the module will be made available to the linked project via the symlink.

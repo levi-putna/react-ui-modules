@@ -55,7 +55,7 @@ export default class Field extends Component {
     onChange(value) {
         const {name, onChange, disabled} = this.props;
 
-        if(!disabled){
+        if (!disabled) {
             onChange(name, value);
         }
 
@@ -116,11 +116,15 @@ export default class Field extends Component {
      * @returns {XML}
      */
     renderInput() {
-        const {input, name, value, placeholder, type, disabled} = this.props;
+        const {input, name, value, placeholder, type, disabled, autoFocus, testId} = this.props;
 
         return (
-            <input {...input} name={name} className={style.input}
-                   value={ (value) ? value : '' }
+            <input
+                   data-test-id={testId}
+                   name={name}
+                   className={style.input}
+                   autoFocus={autoFocus}
+                   value={(value) ? value : ''}
                    placeholder={placeholder}
                    type={type}
                    onBlur={this.onBlur}
@@ -161,7 +165,7 @@ export default class Field extends Component {
      * if possible. Instead the extending component should focus on overriding the other render methods like
      * `renderInput()` and `renderLabel()`.
      *
-     * If you do end up overriding the render method, you will need to make sure you set the root dome node by
+     * If you do end up overriding the render method, you will need to make sure you set the root dom node by
      * setting `ref={this.setNode}` on the root dom node element.
      *
      * @returns {XML}

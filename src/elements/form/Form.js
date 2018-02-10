@@ -49,6 +49,14 @@ export default class Form extends Component {
         );
     }
 
+    setBulk(newData) {
+        let {data} = this.state;
+
+        Object.assign(data, newData);
+
+        this.setState({data});
+    }
+
     /**
      * Set or update the value of a form field.
      *
@@ -96,7 +104,9 @@ export default class Form extends Component {
      * @param error the error message object to set.
      */
     setErrors(error) {
-        const hasErrors = (Object.keys(error).length === 0 && error.constructor === Object);
+        const hasErrors = (error.constructor === Array && Object.keys(error).length > 0 );
+
+        console.log(hasErrors, error.constructor);
 
         this.setState(
             {
