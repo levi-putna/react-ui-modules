@@ -1,3 +1,8 @@
+h1. Overview
+
+A common set of UI elements that can be reused in any React project.
+
+
 h1. Developement
 
 When developeing you you will need to have another react app that you want to import this module into.
