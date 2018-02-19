@@ -52,7 +52,6 @@ export default class Modal extends Component {
     }
 
     modalClick(e) {
-        console.log('click', e);
         let {onModalClick} = this.props;
 
         if (typeof onModalClick === "function") {

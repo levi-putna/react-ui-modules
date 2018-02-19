@@ -1,6 +1,6 @@
 {
   "name": "react-ui-modules",
-  "version": "0.0.1-beta-5",
+  "version": "0.0.1-bata-6",
   "description": "A simple set of base components that can be extended to build better UI with less work.",
   "main": "build/index.js",
   "scripts": {

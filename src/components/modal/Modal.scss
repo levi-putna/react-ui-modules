@@ -8,7 +8,6 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 99;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -24,6 +23,7 @@
   right: 0;
   bottom: 0;
   overflow: auto;
+  z-index: 100;
 }
 
 .container{
@@ -70,6 +70,7 @@
 
 .title {
   margin-top: 10px;
+  margin-left: 10px;
   color: #4d5c6e;
   font-weight: 400;
 }

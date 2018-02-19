@@ -106,8 +106,6 @@ export default class Form extends Component {
     setErrors(error) {
         const hasErrors = (error.constructor === Array && Object.keys(error).length > 0 );
 
-        console.log(hasErrors, error.constructor);
-
         this.setState(
             {
                 error,
