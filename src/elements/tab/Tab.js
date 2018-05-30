@@ -12,8 +12,14 @@ import style from './Tab.scss';
  */
 export default class Tab extends Component {
 
+      static align = {
+          top: 'top',
+          bottom: 'bottom'
+      };
+
     static propTypes = {
         loading: PropTypes.bool,
+        align: PropTypes.string,
         children: PropTypes.oneOfType(
             [
                 PropTypes.array,
@@ -23,30 +29,20 @@ export default class Tab extends Component {
     };
 
     static defaultProps = {
+      active: 0,
+      align: Tab.align.bottom,
         loading: false,
-        className: null
-    };
-
-    static propTypes = {
-        selected: PropTypes.number,
-        children: PropTypes.oneOfType(
-            [
-                PropTypes.array,
-                PropTypes.element
-            ]
-        ).isRequired
-    };
-
-    static defaultProps = {
-        active: 0
+        className: null,
+        labelClassName: null
     };
 
     state = {
         active: this.props.active
     };
 
+
     renderLabels() {
-        let {children} = this.props;
+        let {children, labelClassName} = this.props;
         let {active} = this.state;
 
         if (!children) {
@@ -61,7 +57,7 @@ export default class Tab extends Component {
 
             let classes = classNames(style.label, {
                 [style.labelActive]: (active === index)
-            });
+            },labelClassName);
 
             let icon = child.props.icon;
 
@@ -98,10 +94,15 @@ export default class Tab extends Component {
 
     render() {
 
-        let {children} = this.props;
+        let {children, align, className} = this.props;
+
+        const classes = classNames(style.container,
+          {
+            [style.containerTop]: (align == Tab.align.top),
+          },className);
 
         return (
-            <div className={style.container}>
+            <div className={classes}>
                 {this.renderTabs()}
 
                 <ul className={style.labels}>

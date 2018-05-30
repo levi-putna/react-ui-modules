@@ -1,10 +1,10 @@
 {
   "name": "react-ui-modules",
-  "version": "0.0.1-beta-8",
+  "version": "0.0.1-beta-9",
   "description": "A simple set of base components that can be extended to build better UI with less work.",
   "main": "build/index.js",
   "scripts": {
-    "start:dev": "node scripts/developement.js",
+    "start:client": "node scripts/developement.js",
     "build": "node scripts/production.js",
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",

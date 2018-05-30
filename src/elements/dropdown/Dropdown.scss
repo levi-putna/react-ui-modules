@@ -1,0 +1,20 @@
+.container {
+  z-index: 1001;
+  top: 0;
+  left:0;
+  position: fixed;
+  transition: all 0.2s ease;
+  transform: translate3d(-95%, 0, 0);
+
+  &Open {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.content {
+  width: 240px;
+  background-color: #fff;
+  box-shadow: 0px 5px 75px 0px rgba(12,76,140,0.21), 0px 3px 7px 0px rgba(12,76,140,0.14);
+  border-radius: 3px;
+}

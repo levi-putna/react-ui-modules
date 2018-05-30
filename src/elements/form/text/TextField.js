@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classNames from 'classnames';
 import {Field} from 'elements/form/field';
 
 import style from './TextField.scss';
@@ -14,14 +15,15 @@ import style from './TextField.scss';
 export default class TextField extends Field {
 
     renderInput() {
-        const {input, name, value, placeholder} = this.props;
+        const {input, name, value, placeholder, inputClassName} = this.props;
+        const classes = classNames(style.input, inputClassName);
 
         return (
             <textarea
                 {...input}
                 value={ (value) ? value : '' }
                 name={name}
-                className={style.input}
+                className={classes}
                 placeholder={placeholder}
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}

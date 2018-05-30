@@ -4,6 +4,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  &Top {
+    flex-direction: column-reverse;
+
+    .labels {
+      border-top: 0px solid rgba(0, 0, 0, 0.05);
+    }
+  }
 }
 
 .labels {
@@ -67,5 +75,6 @@
 }
 
 .panel {
-  flex-grow: 1;
+  flex: 1;
+  height: 100%
 }

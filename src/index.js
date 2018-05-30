@@ -7,7 +7,8 @@ import {Button} from "./elements/button/";
 import {Loading} from "./elements/indicator/";
 
 // Form
-import {Form, Field, FieldSet} from "./elements/form/";
+import {Form} from "./elements/form/";
+import {Field, FieldSet} from "./elements/form/field";
 import {InputField} from "./elements/form/input";
 import {TextField} from "./elements/form/text";
 import {ToggleField} from "./elements/form/toggle";
@@ -17,6 +18,10 @@ import {DateField} from "./elements/form/date";
 import {SelectField} from "./elements/form/select";
 import {PasswordField} from "./elements/form/password";
 import {Dropzone} from "./elements/form/dropzone";
+
+// Format
+import {Format} from "./elements/form/format";
+import {NumberFormat} from "./elements/form/format";
 
 // Layout Components
 import {Grid, Row, Col} from "./elements/grid";
@@ -45,6 +50,9 @@ import {Carousel} from "./components/carousel";
 
 import {Calendar} from "./components/calendar";
 
+// Dropdown
+import {Dropdown} from './elements/dropdown';
+
 /**
  * All components that will be published as part of this module must be exposed
  * via module.exports. They can then be access as part of the mocule using es5
@@ -66,6 +74,11 @@ module.exports = {
     SelectField,
     PasswordField,
     Dropzone,
+
+    Format,
+    NumberFormat,
+
+    Dropdown,
 
     Grid,
     Row,

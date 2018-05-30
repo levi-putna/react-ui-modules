@@ -24,19 +24,24 @@ const propTypes = {
             PropTypes.number
         ]
     ),
-    style: PropTypes.object
+    style: PropTypes.object,
+    id: PropTypes.string,
+    testId: PropTypes.string,
 };
 
 const defaultProps = {
-    size: '1em'
+    size: '1em',
+    id: null
 };
 
-const Icon = ({size, style, width, height, type, className, onClick}) => {
+const Icon = ({size, style, width, height, type, className, onClick, id, testId}) => {
 
     const classes = classNames(css.icon, className);
 
     return (
         <svg
+            id={id}
+            data-test-id={testId}
             fill='currentColor'
             preserveAspectRatio='xMidYMid meet'
             height={height || size}

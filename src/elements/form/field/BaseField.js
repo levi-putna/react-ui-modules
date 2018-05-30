@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Component} from 'elements/base';
 import {FieldSet} from 'elements/form/field';
-import Format from 'elements/form/format/Format';
 
 import style from './Field.scss';
 
@@ -15,7 +14,7 @@ import style from './Field.scss';
  * If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful
  * to extend one of the other base subclasses as they provides additional base functionality.
  */
-export default class Field extends Component {
+export default class BaseField extends Component {
 
     static propTypes = {
         name: PropTypes.string.isRequired,
@@ -25,9 +24,6 @@ export default class Field extends Component {
         label: PropTypes.string,
         placeholder: PropTypes.string,
         type: PropTypes.string,
-        prepend: PropTypes.string,
-        append: PropTypes.string,
-        format: PropTypes.object
     };
 
     static defaultProps = {
@@ -35,10 +31,7 @@ export default class Field extends Component {
         label: null,
         disabled: false,
         placeholder: '',
-        type: 'text',
-        prepend: null,
-        append: null,
-        format: null
+        type: 'text'
     };
 
     constructor(props) {
@@ -66,18 +59,6 @@ export default class Field extends Component {
             onChange(name, value);
         }
 
-    }
-
-    getDisplayString() {
-        const {value, format} = this.props;
-
-        if (!format || typeof format.formatString !== "function") {
-            return (value) ? value : '';
-        }
-
-        const formatValue = format.formatString(value);
-
-        return (formatValue) ? formatValue : '';
     }
 
     /**
@@ -135,36 +116,27 @@ export default class Field extends Component {
      * @returns {XML}
      */
     renderInput() {
-        const {input, name, value, placeholder, type, disabled, autoFocus, inputClassName, testId, append, prepend, format} = this.props;
-        const {focus} = this.state;
-
-        const classes = classNames(style.input, inputClassName, {
-            [style.inputFocus]: focus,
-        });
+        const {input, name, value, placeholder, type, disabled, autoFocus, testId} = this.props;
 
         return (
-            <div className={classes}>
-                {(prepend) ? <div className={style.inputPrepend}>{prepend}</div> : ''}
-                <input
-                    data-test-id={testId}
-                    name={name}
-                    className={style.inputField}
-                    autoFocus={autoFocus}
-                    value={this.getDisplayString()}
-                    placeholder={placeholder}
-                    type={type}
-                    onBlur={this.onBlur}
-                    onFocus={this.onFocus}
-                    disabled={disabled}
-                    onChange={(event) => {
-                        const target = event.target;
-                        const value = target.value;
+            <input
+                   data-test-id={testId}
+                   name={name}
+                   className={style.input}
+                   autoFocus={autoFocus}
+                   value={(value) ? value : ''}
+                   placeholder={placeholder}
+                   type={type}
+                   onBlur={this.onBlur}
+                   onFocus={this.onFocus}
+                   disabled={disabled}
+                   onChange={(event) => {
+                       const target = event.target;
+                       const value = target.value;
 
-                        this.onChange(value);
-                    }}
-                />
-                {(append) ? <div className={style.inputAppend}>{append}</div> : ''}
-            </div>
+                       this.onChange(value);
+                   }}
+            />
         );
     }
 
@@ -200,16 +172,13 @@ export default class Field extends Component {
      */
     render() {
 
-        const {error, className} = this.props;
+        const {className} = this.props;
 
         const classes = classNames(style.wrapper, className);
 
         return (
-            <div className={classes} ref={this.setNode}>
-                {this.renderLabel()}
+            <div className={style.wrapper} ref={this.setNode}>
                 {this.renderInput()}
-                {(error && this.renderError())}
-                {(!error && this.renderHint())}
             </div>
         );
     }

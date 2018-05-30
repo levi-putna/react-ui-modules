@@ -20,6 +20,7 @@ const propTypes = {
             PropTypes.object
         ]
     ).isRequired,
+    testId: PropTypes.string
 };
 
 const defaultProps = {
@@ -118,9 +119,11 @@ class Tooltip extends Component {
 
         const position = element.getBoundingClientRect();
 
-        this.setState({
-                          height: position.height
-                      });
+        this.setState(
+            {
+                height: position.height
+            }
+        );
     }
 
     addTargetEvents() {
@@ -144,7 +147,7 @@ class Tooltip extends Component {
     }
 
     render() {
-        const {className, children, textId} = this.props;
+        const {className, children, testId} = this.props;
         const {isOpen} = this.state;
 
         if (!isOpen) {
@@ -157,7 +160,7 @@ class Tooltip extends Component {
         });
 
         return (
-            <div data-test-id={textId} ref={this.setHeight} style={position} className={classes}>
+            <div data-test-id={testId} ref={this.setHeight} style={position} className={classes}>
                 <div className={style.content}>
                     {children}
                 </div>
