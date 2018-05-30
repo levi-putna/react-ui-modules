@@ -25,7 +25,7 @@ You can now include the component you wish to work on in your other app `include
 
 h2. GIT
 
-This module makes use of the Gitflow workflow for managing its git versioning and bug fixes. Learn more at https://nvie.com/posts/a-successful-git-branching-model/
+This module makes use of the Gitflow workflow for managing its git versioning and bug fixes. Learn more at https://nvie.com/posts/a-successful-git-branching-model/ or https://danielkummer.github.io/git-flow-cheatsheet/
 
 h1. Publish
 
