@@ -175,6 +175,9 @@ export default class DropdownField extends Field {
     handleKeyPress(event) {
     }
 
+    /**
+     * Render icons
+     */
     renderIcon(){}
 
     /**
@@ -190,8 +193,8 @@ export default class DropdownField extends Field {
      * @returns {XML}
      */
     renderTrigger() {
-        const {open} = this.state;
-        return <div className={style.trigger} onClick={this.handleToggle}>
+        const {open, testId} = this.state;
+        return <div data-test-id={'trigger-' + testId} className={style.trigger} onClick={this.handleToggle}>
             <Icon type={(open)?  IconType.angleUp : IconType.angleDown}/>
         </div>;
     }
@@ -207,7 +210,7 @@ export default class DropdownField extends Field {
      * @returns {XML}
      */
     renderInputValue() {
-        const {input, typeahead, name, placeholder} = this.props;
+        const {input, typeahead, name, placeholder, testId} = this.props;
         const value = this.getDisplayString();
 
         if (typeahead) {
@@ -215,6 +218,7 @@ export default class DropdownField extends Field {
                 <input
                     {...input}
                     name={name}
+                    data-test-id={'input-' + testId}
                     onBlur={this.onInputBlur}
                     onFocus={this.handleOpen}
                     value={value}
@@ -227,16 +231,18 @@ export default class DropdownField extends Field {
             );
         }
 
+        // Should we use a placeholder text or just a space
+        const placeholder_test = (placeholder)? <span className={style.placeholder}>placeholder</span> : '\u00A0';
+
         return (
-            <div className={style.input} tabIndex="1" onClick={this.handleToggle} onKeyUp={this.handleKeyPress}>
-                { (value) ? value : '\u00A0' }
+            <div data-test-id={'input-' + testId} className={style.input} tabIndex="1" onClick={this.handleToggle} onKeyUp={this.handleKeyPress}>
+                { (value) ? value : placeholder_test }
             </div>
         );
     }
 
     renderInput() {
-
-        const {open, focus, loading} = this.state;
+        const {open, focus, loading, testId} = this.state;
 
         const inputClasses = classNames(style.wrapper, {
             [style.wrapperFocus]: focus
@@ -247,16 +253,13 @@ export default class DropdownField extends Field {
         });
 
         return (
-
-            <div className={style.dropdown}>
-
+            <div data-test-id={testId} className={style.dropdown}>
                 <div className={inputClasses}>
                     {this.renderInputValue()}
                     {this.renderTrigger()}
                 </div>
 
-                {(open || loading) ? <div className={panelClasses}>{this.renderPanel()}</div> : ''}
-
+                {(open || loading) ? <div className={panelClasses} data-test-id={'panel-' + testId}>{this.renderPanel()}</div> : ''}
             </div>
         );
     }

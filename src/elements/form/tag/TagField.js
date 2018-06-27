@@ -27,17 +27,21 @@ export default class TagField extends Field {
     }
 
     renderTags() {
-        const {value} = this.props;
+        const {disabled, value, testId} = this.props;
 
         if (!value) {
             return null;
         }
 
+        const deleteClasses = classNames(style.delete, {
+            [style.deleteDisabled]: disabled
+        });
+
         return value.map((tag) => {
             return (
-                <div key={tag} className={style.tag}>
+                <div data-test-id={'tag-' + testId} key={tag} className={style.tag}>
                     {tag}
-                    <button id={tag} onClick={this.handleDelete} className={style.delete}/>
+                    <button id={tag} onClick={this.handleDelete} className={style.deleteClasses}/>
                 </div>
             );
         });
@@ -79,7 +83,10 @@ export default class TagField extends Field {
     }
 
     handleDelete(event) {
-        const {name, value, onChange} = this.props;
+        const {disabled, name, value, onChange} = this.props;
+
+        // Do nothing if disabled
+        if(disabled){return;}
 
         const tag = event.target.id;
         const index = value.indexOf(tag);
@@ -132,7 +139,7 @@ export default class TagField extends Field {
     }
 
     renderInput() {
-        const {placeholder} = this.props;
+        const {disabled, placeholder, testId} = this.props;
         const {value, focus} = this.state;
 
         const tags = this.renderTags();
@@ -143,16 +150,18 @@ export default class TagField extends Field {
 
         return (
             <div className={inputClasses}>
-                {(tags && tags.length > 0) ? <div className={style.tags}>{tags}</div> : null}
+                {(tags && tags.length > 0) ? <div data-test-id={'tags-' + testId}  className={style.tags}>{tags}</div> : null}
 
                 <input type="text"
                        value={value}
+                       data-test-id={'input-' + testId} 
                        placeholder={placeholder}
                        onChange={this.onChange}
                        onKeyDown={this.handleKeyPress}
                        onFocus={this.onFocus}
                        onBlur={this.onBlur}
                        className={style.input}
+                       disabled={disabled}
                 />
             </div>
         );

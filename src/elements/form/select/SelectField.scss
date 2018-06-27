@@ -33,7 +33,7 @@
   overflow: hidden;
 
   &:hover{
-    background: $color-blue-light;
+    background: $color-blue-transparent;
     color: inherit;
   }
 
@@ -45,13 +45,8 @@
 }
 
 .icon {
-  color: $color-gray;
   width: 15px;
   margin: auto 7px auto 0;
   display: inline-block;
   vertical-align: middle;
-
-  &Selected {
-    color: $color-red;
-  }
 }

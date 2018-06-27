@@ -27,6 +27,14 @@ h2. GIT
 
 This module makes use of the Gitflow workflow for managing its git versioning and bug fixes. Learn more at https://nvie.com/posts/a-successful-git-branching-model/ or https://danielkummer.github.io/git-flow-cheatsheet/
 
+h2. Dev Plugins
+This tool is build for React projects. This allows us to make use of some of the very useful react development tools.
+
+I recommend installing:
+
+ * React Developer Tools - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+ * Redux DevTools - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+
 h1. Publish
 
 To publish a new version of the module to NPM push all changes to the GIT repo master branch, then use the `yarn publish` command to push the changes. This will run the prepublish script to build the module before pushing up the changes. Make sure to increment the version making use of the NPM semantic versioning or users may not be able to update to the latest version. (Learn more about about NPM semantic versioning at https://docs.npmjs.com/getting-started/semantic-versioning)

@@ -24,7 +24,7 @@ export default class ToggleField extends Field {
     }
 
     renderInput() {
-        const {input, name, value, type, disabled} = this.props;
+        const {input, name, value, type, disabled, testId} = this.props;
 
         const classes = classNames(style.toggle, {
             [style.toggleDisabled]: disabled,
@@ -42,6 +42,7 @@ export default class ToggleField extends Field {
             <label className={classes}>
                 <input {...input}
                        checked={!!(value)}
+                       data-test-id={'input-' + testId} 
                        name={name}
                        type="checkbox"
                        onChange={(event) => {

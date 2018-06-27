@@ -230,8 +230,12 @@ export default class SelectField extends DropdownField {
     }
 
     renderOptions() {
-        const {value} = this.props;
+        const {value, testId} = this.props;
         const options = this.getOptions();
+
+        if(!options || options.length === 0){
+          return null;
+        }
 
         return options.map((option) => {
 
@@ -243,6 +247,7 @@ export default class SelectField extends DropdownField {
 
             return (<Option
                 key={key}
+                data-test-id={'option-' + testId}
                 label={option.label}
                 value={option.value}
                 icon={(option.icon)? option.icon : null}

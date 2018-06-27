@@ -4,12 +4,11 @@ import {Field, FieldSet} from 'elements/form/field';
 import style from './InputField.scss';
 
 /**
- * Field is the base class for all form fields. It provides a lot of shared functionality to all field subclasses
- * (for example labels, simple validation, clearing and tab index management), but is rarely used directly.
- * Instead, it is much more common to use one of the field subclasses.
+ * InputField is used to create interactive controls in order to accept data simple user data. Is the common type of input and represents the behavior you 
+ * would expect from a standard HTML <input /> with the additional framework functionality like labels and error management build on top.
  *
- * If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful
- * to extend one of the other base subclasses as they provides additional base functionality.
+ * Note: at this time InputField simply extends the base Field as it requires no additional functionality, however it has been given its
+ * oen class to resurvey the name space, and prevent changes to the base API in the future if the functionality was to diverge slightly.
  */
 export default class InputField extends Field {
 

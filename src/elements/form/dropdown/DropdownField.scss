@@ -41,6 +41,7 @@
 }
 
 .input {
+  font: 400 11px system-ui;
   flex: 1;
   width: 100%;
   font-size: 16px;
@@ -71,6 +72,10 @@
     box-shadow:none;
     outline: none;
   }
+}
+
+.placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .panel {

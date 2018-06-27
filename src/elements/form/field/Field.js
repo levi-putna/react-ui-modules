@@ -27,7 +27,8 @@ export default class Field extends Component {
         type: PropTypes.string,
         prepend: PropTypes.string,
         append: PropTypes.string,
-        format: PropTypes.object
+        format: PropTypes.object,
+        testId: PropTypes.string
     };
 
     static defaultProps = {
@@ -68,6 +69,9 @@ export default class Field extends Component {
 
     }
 
+    /**
+     * Format the display value for this field.
+     */
     getDisplayString() {
         const {value, format} = this.props;
 
@@ -114,7 +118,7 @@ export default class Field extends Component {
      * @returns {XML}
      */
     renderLabel() {
-        const {label, name, error} = this.props;
+        const {label, name, error, testId} = this.props;
         const {focus} = this.state;
 
         if (!label) {
@@ -126,7 +130,7 @@ export default class Field extends Component {
             [style.labelError]: error
         });
 
-        return <label className={classes} htmlFor={name}>{label}</label>;
+        return <label data-test-id={"label-" + testId} className={classes} htmlFor={name}>{label}</label>;
     }
 
     /**
@@ -146,7 +150,7 @@ export default class Field extends Component {
             <div className={classes}>
                 {(prepend) ? <div className={style.inputPrepend}>{prepend}</div> : ''}
                 <input
-                    data-test-id={testId}
+                    data-test-id={"input-" + testId}
                     name={name}
                     className={style.inputField}
                     autoFocus={autoFocus}
@@ -173,8 +177,8 @@ export default class Field extends Component {
      * @returns {*}
      */
     renderHint() {
-        const {hint} = this.props;
-        return (hint) ? <small className={style.hint}>{hint}</small> : '';
+        const {hint, testId} = this.props;
+        return (hint) ? <small data-test-id={"hint-" + testId} className={style.hint}>{hint}</small> : '';
     }
 
     /**
@@ -182,8 +186,8 @@ export default class Field extends Component {
      * @returns {XML}
      */
     renderError() {
-        const {error} = this.props;
-        return <span className={style.error}>{error}</span>;
+        const {error, testId} = this.props;
+        return <span data-test-id={"error-" + testId} className={style.error}>{error}</span>;
     }
 
     /**
@@ -200,12 +204,12 @@ export default class Field extends Component {
      */
     render() {
 
-        const {error, className} = this.props;
+        const {error, className, testId} = this.props;
 
         const classes = classNames(style.wrapper, className);
 
         return (
-            <div className={classes} ref={this.setNode}>
+            <div className={classes} ref={this.setNode} data-test-id={testId}>
                 {this.renderLabel()}
                 {this.renderInput()}
                 {(error && this.renderError())}

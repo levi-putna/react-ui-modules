@@ -120,7 +120,7 @@ export default class BaseField extends Component {
 
         return (
             <input
-                   data-test-id={testId}
+                   data-test-id={'input-' + testId}
                    name={name}
                    className={style.input}
                    autoFocus={autoFocus}
@@ -145,8 +145,8 @@ export default class BaseField extends Component {
      * @returns {*}
      */
     renderHint() {
-        const {hint} = this.props;
-        return (hint) ? <small className={style.hint}>{hint}</small> : '';
+        const {hint, testId} = this.props;
+        return (hint) ? <small data-test-id={"hint-" + testId} className={style.hint}>{hint}</small> : '';
     }
 
     /**
@@ -154,8 +154,8 @@ export default class BaseField extends Component {
      * @returns {XML}
      */
     renderError() {
-        const {error} = this.props;
-        return <span className={style.error}>{error}</span>;
+        const {error, testId} = this.props;
+        return <span data-test-id={"error-" + testId} className={style.error}>{error}</span>;
     }
 
     /**
@@ -172,12 +172,12 @@ export default class BaseField extends Component {
      */
     render() {
 
-        const {className} = this.props;
+        const {className, testId} = this.props;
 
         const classes = classNames(style.wrapper, className);
 
         return (
-            <div className={style.wrapper} ref={this.setNode}>
+            <div data-test-id={'input-' + testId} className={style.wrapper} ref={this.setNode}>
                 {this.renderInput()}
             </div>
         );

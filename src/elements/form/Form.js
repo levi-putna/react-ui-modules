@@ -16,6 +16,9 @@ export default class Form extends Component {
         this.setErrors = this.setErrors.bind(this);
         this.clearErrors = this.clearErrors.bind(this);
 
+        this.onKeyPress = this.onKeyPress.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
         // This is an abstract class and cannot be darcey creates
         if (this.constructor === Form) {
             throw new TypeError('Abstract class "Form" cannot be instantiated directly.');
@@ -29,6 +32,23 @@ export default class Form extends Component {
             loading: false
         };
     }
+
+    /**
+     * Listen to key press events, and handle any core behaviours.
+     * @param {the key press event} event 
+     */
+    onKeyPress(event) {
+        if(event.key === 'Enter'){
+            this.onSubmit();
+        }
+    }
+
+    /**
+     * handle submitting of the form.
+     * 
+     * It will automaticaly be called on enter, but will need to be manualy called on button clicks.
+     */
+    onSubmit() {}
 
     /**
      * Set the data state for this form, this will also trigger a reset of the touched fields, and error states.
@@ -49,11 +69,17 @@ export default class Form extends Component {
         );
     }
 
+    /**
+     * Bulk set the data object on load or update.
+     * 
+     * Note: This will murge into the ixusting data object, and only overide values provided. You will need to clear 
+     * the data value before setting if you wish to reset it.
+     * 
+     * @param {Data to set} newData 
+     */
     setBulk(newData) {
         let {data} = this.state;
-
         Object.assign(data, newData);
-
         this.setState({data});
     }
 

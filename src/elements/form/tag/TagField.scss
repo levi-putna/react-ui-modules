@@ -97,6 +97,16 @@
     background-color: rgba(10, 10, 10, 0.4);
   }
 
+  &Disabled {
+    &:hover {
+      background-color: transparent;
+    }
+  
+    &:active {
+      background-color: transparent;
+    }
+  }
+
   &:before {
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transform-origin: center center;

@@ -13,12 +13,12 @@ import style from './PasswordField.scss';
 export default class PasswordField extends Field {
 
     static propTypes = {
-        ...PasswordField.propTypes,
+        ...Field.propTypes,
         warning: PropTypes.string
     };
 
     static defaultProps = {
-        ...PasswordField.defaultProps,
+        ...Field.defaultProps,
         type: 'password',
         error: null,
     };
@@ -35,6 +35,10 @@ export default class PasswordField extends Field {
 
     }
 
+    /**
+     * Score the password and give a human readable strength level.
+     * @param {*} score 
+     */
     getScore(score){
         switch (score) {
             case 1:
@@ -66,6 +70,7 @@ export default class PasswordField extends Field {
     }
 
     renderInput() {
+        const {testId} = this.props;
         const {strength, warning} = this.state;
         const input = super.renderInput();
 
@@ -84,7 +89,7 @@ export default class PasswordField extends Field {
                     <div className={style.part} style={{left: '25%'}} />
                     <div className={style.part} style={{left: '50%'}} />
                     <div className={style.part} style={{left: '75%'}} />
-                    <div className={style.label}>{strength}</div>
+                    <div data-test-id={'strength-' + testId} className={style.label}>{strength}</div>
                     {(warning && <small className={style.warning}>{warning}</small>)}
                 </div>
             </div>

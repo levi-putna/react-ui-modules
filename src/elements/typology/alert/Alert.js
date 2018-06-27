@@ -7,7 +7,8 @@ import style from './Alert.scss';
 export default class Alert extends Component {
 
     static propTypes = {
-        title: PropTypes.string
+        title: PropTypes.string,
+        testId: PropTypes.string
     };
 
     static defaultProps = {
@@ -25,6 +26,9 @@ export default class Alert extends Component {
         this.handleClose = this.handleClose.bind(this);
     }
 
+    /**
+     * Handle the close click
+     */
     handleClose() {
         let {onClose} = this.props;
 
@@ -40,7 +44,7 @@ export default class Alert extends Component {
 
         return (
             <aside data-test-id={testId} className={classes}>
-                <div data-test-id={testId + '-close'} onClick={this.handleClose} className={style.close} />
+                <div data-test-id={'close-' + testId} onClick={this.handleClose} className={style.close} />
                 { title ? <h3 className={style.title}>{ title }</h3> : null }
                 { children ? <div className={style.body}>{ children }</div> : null }
             </aside>

@@ -260,7 +260,7 @@ export default class Dropzone extends Component {
 
     render() {
 
-        const {className, accept, inputProps, name, children, ...rest} = this.props;
+        const {testId, className, accept, inputProps, name, children, ...rest} = this.props;
 
         let {...props} = rest;
 
@@ -300,6 +300,7 @@ export default class Dropzone extends Component {
         return (
             <div
                 className={classes}
+                data-test-id={testId}
                 {...divProps}
                 onClick={this.onClick}
                 onDragStart={this.onDragStart}

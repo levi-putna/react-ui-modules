@@ -212,7 +212,7 @@ export default class DateField extends DropdownField {
     }
 
     renderInputValue() {
-        const {input, value, typeahead, name, placeholder} = this.props;
+        const {input, value, typeahead, name, placeholder, testId} = this.props;
         const {inputValue} = this.state;
 
         const valueString = (value) ? this.getDateString(value, true) : '';
@@ -222,6 +222,7 @@ export default class DateField extends DropdownField {
             return (
                 <input
                     {...input}
+                    data-test-id={"input-" + testId}
                     name={name}
                     onBlur={this.onInputBlur}
                     onFocus={this.handleOpen}
@@ -236,7 +237,7 @@ export default class DateField extends DropdownField {
         }
 
         return (
-            <div  className={dropdownStyle.input} tabIndex="1" onClick={this.handleToggle}>
+            <div data-test-id={"input-" + testId} className={dropdownStyle.input} tabIndex="1" onClick={this.handleToggle}>
                 { (value) ? this.getDateString(value, true) : '\u00A0' }
             </div>
         );
@@ -244,7 +245,7 @@ export default class DateField extends DropdownField {
 
     renderTrigger() {
         const classes = classNames(style.trigger, dropdownStyle.trigger);
-        return <div className={classes} onClick={this.handleToggle}>
+        return <div data-test-id={"trigger-" + testId} className={classes} onClick={this.handleToggle}>
             <Icon type={IconType.calendar} />
         </div>;
     }
@@ -293,7 +294,5 @@ export default class DateField extends DropdownField {
                 </div>
             </div>
         </div>
-
-
     }
 }
