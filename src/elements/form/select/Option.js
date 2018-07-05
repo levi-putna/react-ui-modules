@@ -13,7 +13,7 @@ export default class Option extends Component {
                 PropTypes.string,
                 PropTypes.number
             ]
-        ).isRequired,
+        ),
         label: PropTypes.oneOfType(
             [
                 PropTypes.string,
