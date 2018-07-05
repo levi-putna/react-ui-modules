@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Option from './Option';
 
 import {DropdownField} from 'elements/form/dropdown';
+import { isNull } from 'util';
 
 const ENTER = 'Enter';
 const DOWN = 'ArrowDown';
@@ -20,7 +21,7 @@ export default class SelectField extends DropdownField {
                             PropTypes.string,
                             PropTypes.number
                         ]
-                    ).isRequired,
+                    ),
                     label: PropTypes.oneOfType(
                         [
                             PropTypes.string,
@@ -133,9 +134,9 @@ export default class SelectField extends DropdownField {
         const {filter} = this.state;
         const hasFilter = (filter !== undefined) && (filter !== null) && (filter !== '');
 
-        if (!value && !hasFilter) {
-            return '';
-        }
+        // if (!value && !hasFilter) {
+        //     return '';
+        // }
 
         if (hasFilter) {
             return filter;
@@ -243,7 +244,7 @@ export default class SelectField extends DropdownField {
                 return null;
             }
 
-            const key = option.value.toString();
+            const key = (isNull(option.value))? null : option.value.toString();
 
             return (<Option
                 key={key}

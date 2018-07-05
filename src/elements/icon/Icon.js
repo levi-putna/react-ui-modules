@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IconType } from 'elements/icon';
 import classNames from 'classnames';
 
 import css from './Icon.scss';
+
 
 const propTypes = {
     type: PropTypes.shape(

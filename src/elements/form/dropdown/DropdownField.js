@@ -232,7 +232,7 @@ export default class DropdownField extends Field {
         }
 
         // Should we use a placeholder text or just a space
-        const placeholder_test = (placeholder)? <span className={style.placeholder}>placeholder</span> : '\u00A0';
+        const placeholder_test = (placeholder)? <span className={style.placeholder}>{placeholder}</span> : '\u00A0';
 
         return (
             <div data-test-id={'input-' + testId} className={style.input} tabIndex="1" onClick={this.handleToggle} onKeyUp={this.handleKeyPress}>
