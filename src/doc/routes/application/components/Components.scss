@@ -1,0 +1,92 @@
+@import "config/color";
+
+.container {
+
+}
+
+.content {
+  z-index: 1;
+}
+
+.body {
+  padding:10px 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.intro{
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.toolbar {
+  background: white;
+  height: 60px;
+  margin: 0;
+  box-shadow: 0 0 30px rgba(69, 101, 173, 0.1);
+  border-bottom: 1px solid #E6E6E6;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+
+  &Item {
+    margin: 10px 0px 10px 10px;
+    font-size: 26px;
+    vertical-align: middle;
+    padding-right: 8px;
+    color: dodgerblue;
+    white-space: nowrap;
+    display: none;
+  
+    &::before,
+    &::after {
+      color: silver;
+    }
+  
+    &::after {
+      content: ' › ';
+    }
+  
+    &:last-of-type {
+      color: black;
+  
+      &::after {
+        content: '';
+      }
+    }
+  
+    &:first-child,
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      display: inline-block;
+      width: auto;
+  
+      &::before {
+        content: '';
+      }
+    }
+  
+    &:nth-last-child(n+3):nth-child(2) {
+      display: inline-block;
+      overflow: hidden;
+      width: auto;
+  
+      font-size: 0;
+    }
+  
+    &::before {
+      content: '...';
+    }
+  
+  }
+}

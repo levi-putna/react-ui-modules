@@ -19,6 +19,8 @@ import {SelectField} from "./elements/form/select";
 import {PasswordField} from "./elements/form/password";
 import {Dropzone} from "./elements/form/dropzone";
 
+import {EmailBuilder} from "./components/email";
+
 // Format
 import {Format} from "./elements/form/format";
 import {NumberFormat} from "./elements/form/format";
@@ -74,6 +76,8 @@ module.exports = {
     SelectField,
     PasswordField,
     Dropzone,
+
+    EmailBuilder,
 
     Format,
     NumberFormat,

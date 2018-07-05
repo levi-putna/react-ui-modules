@@ -2,9 +2,9 @@
   "name": "react-ui-modules",
   "version": "0.0.1-beta-11",
   "description": "A simple set of base components that can be extended to build better UI with less work.",
-  "main": "build/index.js",
+  "main": "build/app.index.js",
   "scripts": {
-    "start:client": "node scripts/developement.js",
+    "start:development": "yarn link; yarn link react-ui-modules; node scripts/development.js",
     "build": "node scripts/production.js",
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",
@@ -37,6 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "html-webpack-plugin": "^2.30.1",
+    "live-server": "^1.2.0",
     "node-sass": "^4.5.3",
     "node-watch": "^0.5.5",
     "postcss-flexbugs-fixes": "^3.2.0",
@@ -55,7 +56,9 @@
     "react": "^16.0.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.0.0",
+    "react-highlight": "^0.12.0",
     "react-router-dom": "^4.2.2",
+    "react-syntax-highlighter": "^7.0.4",
     "zxcvbn": "^4.4.2"
   }
 }
