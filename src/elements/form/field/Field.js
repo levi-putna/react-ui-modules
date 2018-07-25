@@ -139,11 +139,12 @@ export default class Field extends Component {
      * @returns {XML}
      */
     renderInput() {
-        const {input, name, value, placeholder, type, disabled, autoFocus, inputClassName, testId, append, prepend, format} = this.props;
+        const {error, input, name, value, placeholder, type, disabled, autoFocus, inputClassName, testId, append, prepend, format} = this.props;
         const {focus} = this.state;
 
         const classes = classNames(style.input, inputClassName, {
             [style.inputFocus]: focus,
+            [style.inputDisabled]: disabled,
         });
 
         return (

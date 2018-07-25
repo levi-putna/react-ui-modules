@@ -39,18 +39,6 @@ try {
 
     });
 
-    
-// Start the document server
-var params = {
-	port: 8080, // Set the server port. Defaults to 8080.
-    root: "./build", // Set root directory that's being served. Defaults to cwd.
-    file: "index.html",
-	wait: 1000, // Waits for all changes, before reloading. Defaults to 0 sec.
-	//mount: [['../build']], // Mount a directory to a route.
-};
-
-liveServer.start(params);
-
 } catch (e) {
     console.log(chalk.red('Build failed due to fatal error'), e);
 }

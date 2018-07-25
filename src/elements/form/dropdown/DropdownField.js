@@ -134,6 +134,7 @@ export default class DropdownField extends Field {
      */
     handleToggle() {
         const {open} = this.state;
+        const {disabled} = this.props;
 
         this.setState(
             {
@@ -232,20 +233,22 @@ export default class DropdownField extends Field {
         }
 
         // Should we use a placeholder text or just a space
-        const placeholder_test = (placeholder)? <span className={style.placeholder}>{placeholder}</span> : '\u00A0';
+        const placeholderText = (placeholder)? <span className={style.placeholder}>{placeholder}</span> : '\u00A0';
 
         return (
             <div data-test-id={'input-' + testId} className={style.input} tabIndex="1" onClick={this.handleToggle} onKeyUp={this.handleKeyPress}>
-                { (value) ? value : placeholder_test }
+                { (value) ? value : placeholderText }
             </div>
         );
     }
 
     renderInput() {
+        const {disabled, inputClassName} = this.props;
         const {open, focus, loading, testId} = this.state;
 
-        const inputClasses = classNames(style.wrapper, {
-            [style.wrapperFocus]: focus
+        const inputClasses = classNames(style.wrapper, inputClassName, {
+            [style.wrapperFocus]: (focus && !disabled),
+            [style.wrapperDisabled]: disabled,
         });
 
         const panelClasses = classNames(style.panel, {
@@ -259,7 +262,7 @@ export default class DropdownField extends Field {
                     {this.renderTrigger()}
                 </div>
 
-                {(open || loading) ? <div className={panelClasses} data-test-id={'panel-' + testId}>{this.renderPanel()}</div> : ''}
+                {(open && !disabled) ? <div className={panelClasses} data-test-id={'panel-' + testId}>{this.renderPanel()}</div> : ''}
             </div>
         );
     }

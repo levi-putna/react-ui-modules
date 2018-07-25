@@ -1,27 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 
 const paths = {
     build: path.join(__dirname, "/build"),
     entry: path.join(__dirname, "/src/index.js"),
-    doc: path.join(__dirname, "/src/doc/index.js"),
     src: path.join(__dirname, "/src")
 };
 
 module.exports = {
     bail: true,
     devtool: 'source-map',
-    entry: {
-        app: paths.entry,
-        doc: paths.doc
-    },
+    entry: paths.entry,
 
     output: {
         path: paths.build,
-        filename: "[name].index.js",
+        filename: "index.js",
         library: "react-component-lib",
         libraryTarget: "umd"
     },
@@ -130,15 +125,6 @@ module.exports = {
         // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
         // You can remove this if you don't use Moment.js:
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
-        new HtmlWebpackPlugin({
-            hash: true,
-            title: 'React UI Modules Documentation',
-            myPageHeader: 'Hello World',
-            template: './src/doc/index.html',
-            chunks: ['doc'],
-            filename: '../build/index.html' //relative to root of the application
-        }),
     ],
 
     // Some libraries import Node modules but don't use them in the browser.

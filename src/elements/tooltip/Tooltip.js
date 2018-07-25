@@ -20,14 +20,21 @@ const propTypes = {
             PropTypes.object
         ]
     ).isRequired,
-    testId: PropTypes.string
+    testId: PropTypes.string,
+    position: PropTypes.string,
 };
 
 const defaultProps = {
-    isOpen: false
+    isOpen: false,
+    position: 'RIGHT',
 };
 
 class Tooltip extends Component {
+
+    static position = {
+        left: 'LEFT',
+        right: 'RIGHT'
+    };
 
     constructor(props) {
         super(props);
@@ -103,12 +110,25 @@ class Tooltip extends Component {
             return null;
         }
 
+        const {position} = this.props;
         const {height} = this.state;
-        const position = element.getBoundingClientRect();
+        const positioning = element.getBoundingClientRect();
 
+        console.log('positioning', positioning);
+
+        // Return when rendering to the left side
+        if(position === Tooltip.position.left){
+
+            return {
+                top: positioning.top + (positioning.height / 2) - (height / 2),
+                right: positioning.left
+            };
+        }
+
+        // Default: Returned when rendering to the right side of the element
         return {
-            top: position.top + (position.height / 2) - (height / 2),
-            left: position.right
+            top: positioning.top + (positioning.height / 2) - (height / 2),
+            left: positioning.right
         };
     }
 
@@ -147,20 +167,21 @@ class Tooltip extends Component {
     }
 
     render() {
-        const {className, children, testId} = this.props;
+        const {className, children, position, testId} = this.props;
         const {isOpen} = this.state;
 
         if (!isOpen) {
             return null;
         }
 
-        const position = this.calculatePosition(this.target);
+        const positioning = this.calculatePosition(this.target);
         const classes = classNames(style.tooltip, className, {
-            [style.tooltipOpen]: true
+            [style.tooltipOpen]: true,
+            [style.tooltipLeft]: (position === Tooltip.position.left)
         });
 
         return (
-            <div data-test-id={testId} ref={this.setHeight} style={position} className={classes}>
+            <div data-test-id={testId} ref={this.setHeight} style={positioning} className={classes}>
                 <div className={style.content}>
                     {children}
                 </div>

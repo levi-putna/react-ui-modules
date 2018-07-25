@@ -18,8 +18,6 @@
   opacity: 0;
   padding: 0 5px;
   margin-left: 3px;
-  top: 0;
-  left: 0;
   position: fixed;
 
   &Open {
@@ -40,6 +38,23 @@
     content: "";
     border-width: 5px 5px 5px 0;
     border-right-color: #000;
+  }
+
+  &Left{
+    &:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+  
+      top: 50%;
+      right: 0;
+      margin-top: -5px;
+      content: "";
+      border-width: 5px 5px 5px 0;
+      border-right-color: #000;
+    }
   }
 }
 

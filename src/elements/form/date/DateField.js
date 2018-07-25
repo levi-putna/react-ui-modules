@@ -236,14 +236,19 @@ export default class DateField extends DropdownField {
             );
         }
 
+        // Should we use a placeholder text or just a space
+        const placeholderText = (placeholder)? <span className={style.placeholder}>{placeholder}</span> : '\u00A0';
+        
         return (
             <div data-test-id={"input-" + testId} className={dropdownStyle.input} tabIndex="1" onClick={this.handleToggle}>
-                { (value) ? this.getDateString(value, true) : '\u00A0' }
+                { (value) ? this.getDateString(value, true) : placeholderText }
             </div>
         );
     }
 
     renderTrigger() {
+        const {testId} = this.props;
+
         const classes = classNames(style.trigger, dropdownStyle.trigger);
         return <div data-test-id={"trigger-" + testId} className={classes} onClick={this.handleToggle}>
             <Icon type={IconType.calendar} />
@@ -264,7 +269,6 @@ export default class DateField extends DropdownField {
     }
 
     renderPanel() {
-
         const {date} = this.state;
 
         const year = date.format('YYYY');

@@ -62,12 +62,14 @@ export default class SelectField extends DropdownField {
 
             case UP:
                 event.stopPropagation();
+                event.preventDefault();
                 this.setState({open: true});
                 this.navigateSelected(UP, event);
                 break;
 
             case DOWN:
                 event.stopPropagation();
+                event.preventDefault();
                 this.setState({open: true});
                 this.navigateSelected(DOWN, event);
                 break;
@@ -134,7 +136,8 @@ export default class SelectField extends DropdownField {
         const {filter} = this.state;
         const hasFilter = (filter !== undefined) && (filter !== null) && (filter !== '');
 
-        // if (!value && !hasFilter) {
+        // Removed to support null and empty string value. Need to add some version to support typeahead empty string value
+        // if (!value && hasFilter) {
         //     return '';
         // }
 
@@ -188,15 +191,6 @@ export default class SelectField extends DropdownField {
     onInputBlur(event) {
         const {options} = this.props;
         const value = event.target.value;
-
-        // const option = options.find((option) => {
-        //     consoel.log(option.label.toLowerCase(), value.toLowerCase());
-        //     return (option.label.toLowerCase() === value.toLowerCase());
-        // });
-        //
-        // if (option) {
-        //     this.onSelect(option.value, event);
-        // }
     }
 
     onInputChange(event) {

@@ -14,11 +14,17 @@
   font-size: 16px;
   border-radius: 2px;
   outline: none;
+  background-color:  $color-white;
 
   &Focus {
     transform: translateY(-1px) scale(1.003);
     box-shadow: -4px 4px 6px 0 rgba(86, 116, 138, 0.16), 0 0 0 1px $color-blue;
     border-radius: 2px 2px 0 0;
+  }
+
+  &:disabled,
+  &Disabled {
+    background: $color-gray-light;
   }
 }
 
@@ -26,7 +32,6 @@
   width: 30px;
   margin: auto;
   line-height: 0;
-  background: $color-white;
   color: $color-gray;
   display: inline-block;
   vertical-align: middle;
@@ -48,7 +53,6 @@
   line-height: 18px;
   border: none;
   color: $color-black;
-  background-color: $color-white;
   font-weight: 300;
   user-select: text;
   text-rendering: auto;
@@ -72,6 +76,7 @@
     box-shadow:none;
     outline: none;
   }
+
 }
 
 .placeholder {

@@ -6,7 +6,6 @@
 
 .panel {
   min-width: 250px;
-  max-width: 550px;
   margin-left: auto;
 }
 
@@ -246,4 +245,8 @@
   &Error {
     color: $color-red;
   }
+}
+
+.placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
