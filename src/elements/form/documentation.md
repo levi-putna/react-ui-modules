@@ -1,9 +1,5 @@
 # Description
-A date picker component which shows a calender dropdown, or allows manual eatery of the date with some auto formatting.
-
-The value will be transformed to the displayFormat when rendered in the ui, but the actual value used by the component will remain in the valueFormat. Use the 'displayFormat' & 'valueFormat' props to adjust the format.
-
-Note: If an value is provided in a format that doesn't match the 'valueFormat', the component will attempt to transform the date using recognized RFC2822 or ISO formats.
+Form is a convenient base class to help manage a number of form fields and provides convenient ways to load and save data as well as manage errors. Components that use a number of fields should extend form to allow simpler data collection and management management. 
 
 # Example
 ~~~js

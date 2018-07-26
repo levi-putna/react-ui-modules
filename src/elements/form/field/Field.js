@@ -17,17 +17,80 @@ import style from './Field.scss';
  */
 export default class Field extends Component {
 
+    /**
+ * Enum for tri-state values.
+ * @readonly
+ * @enum {number}
+ */
+
     static propTypes = {
+
+        /**
+         * The name used to represent this field. When used with the Form component the name will be used to sore the fields value, errors, touched and other attributes.
+         * @member {String} 
+         */
         name: PropTypes.string.isRequired,
+
+        /**
+         * True to disable the field for input.
+         * @member {Bool} 
+         */
         disabled: PropTypes.bool,
+
+         /**
+          * An additional CSS class to apply to the main element of this component. 
+          * @member {Object} 
+          */
         className: PropTypes.string,
+
+         /**
+          * An optional hing to display below the field input 
+          * @member {String} 
+          */
         hint: PropTypes.string,
+
+        /**
+         * The label of this field
+         * @member {String} 
+         */
         label: PropTypes.string,
+
+        /**
+         * The short hint is displayed in the Field before the user enters a value. Describes the expected value of an input field.
+         * @member {String} 
+         */
         placeholder: PropTypes.string,
+
+        /**
+         * The HTML `<input>` element type to display
+         * @member {String} 
+         */
         type: PropTypes.string,
+
+        /**
+         * Displayed before the field
+         * @member {String} 
+         */
         prepend: PropTypes.string,
+
+        /**
+         * Displayed after the field.
+         * @member {String} 
+         */
         append: PropTypes.string,
+
+
+        /**
+         * A function that takes the input value as a parameter, and returns a formatted string.
+         * @member {Function} 
+         */
         format: PropTypes.object,
+
+
+        /**
+         * A unique id used to target this field during testing.
+         * @member {String} 
+         */
         testId: PropTypes.string
     };
 
@@ -57,8 +120,9 @@ export default class Field extends Component {
     }
 
     /**
-     * Make a change to the components value if the field is not disabled.
-     * @param value
+     * Fires when the Fields value changes.
+     * @event
+     * @param value the new Field value
      */
     onChange(value) {
         const {name, onChange, disabled} = this.props;
@@ -70,7 +134,10 @@ export default class Field extends Component {
     }
 
     /**
-     * Format the display value for this field.
+     * returns a formatted string to be used as the display value of the field. Extending classes may want to override this method to provided formatted results.
+     * 
+     * Note: this formatting will have no effect on the actual value of the field.
+     * @returns {String} A formatted string
      */
     getDisplayString() {
         const {value, format} = this.props;
@@ -115,7 +182,7 @@ export default class Field extends Component {
 
     /**
      * Render the component label
-     * @returns {XML}
+     * @returns {JSX}
      */
     renderLabel() {
         const {label, name, error, testId} = this.props;
@@ -135,8 +202,9 @@ export default class Field extends Component {
 
     /**
      * Render the components input field. The part of the component that is used to set and display the
-     * components value
-     * @returns {XML}
+     * components value. Extending classes may wish to override this to create new Field functionality.
+     *  
+     * @returns {JSX}
      */
     renderInput() {
         const {error, input, name, value, placeholder, type, disabled, autoFocus, inputClassName, testId, append, prepend, format} = this.props;
@@ -174,8 +242,8 @@ export default class Field extends Component {
     }
 
     /**
-     * Render component hint message
-     * @returns {*}
+     * Render component hint message.
+     * @returns {JSX}
      */
     renderHint() {
         const {hint, testId} = this.props;
@@ -183,8 +251,8 @@ export default class Field extends Component {
     }
 
     /**
-     * Render the components error states.
-     * @returns {XML}
+     * Render the components error message.
+     * @returns {JSX}
      */
     renderError() {
         const {error, testId} = this.props;
@@ -194,14 +262,14 @@ export default class Field extends Component {
     /**
      * Render the component.
      *
-     * Note: it is encouraged that components extending this Field component avoid overriding the render method
+     * Note: it is encouraged that components extending this component avoid overriding the render method
      * if possible. Instead the extending component should focus on overriding the other render methods like
      * `renderInput()` and `renderLabel()`.
      *
-     * If you do end up overriding the render method, you will need to make sure you set the root dom node by
+     * If you do end up overriding the render method, you will need to make sure you identify the root dom node by
      * setting `ref={this.setNode}` on the root dom node element.
      *
-     * @returns {XML}
+     * @returns {JSX}
      */
     render() {
 

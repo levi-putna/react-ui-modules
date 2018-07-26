@@ -9,8 +9,8 @@ import {withKnobs, text, boolean, select} from '@storybook/addon-knobs';
 
 import documentation from './documentation.md';
 
-import Field from './Field';
 import Form from '../Form';
+import PasswordField from './PasswordField';
 
 const stories = storiesOf('Form', module);
 
@@ -22,7 +22,7 @@ class StatefulForm extends Form {
   
   render() {
     return (
-        <Field 
+        <PasswordField 
           name={text('name', 'test-field')}
           type={text('type', 'email')}
           value={this.state.value}
@@ -44,6 +44,6 @@ class StatefulForm extends Form {
   }
 }
 
-stories.add('Field', withNotes(documentation)(() => (
+stories.add('PasswordField', withNotes(documentation)(() => (
   <StatefulForm />
 )))

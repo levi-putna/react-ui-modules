@@ -6,6 +6,7 @@ import './style.scss';
 const req = require.context('../src/', true, /\.stories\.js$/)
 
 function loadStories() {
+  require('./welcome');
   req.keys().forEach(filename => req(filename));
 }
 

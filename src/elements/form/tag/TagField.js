@@ -41,7 +41,7 @@ export default class TagField extends Field {
             return (
                 <div data-test-id={'tag-' + testId} key={tag} className={style.tag}>
                     {tag}
-                    <button id={tag} onClick={this.handleDelete} className={style.deleteClasses}/>
+                    <button id={tag} onClick={this.handleDelete} className={deleteClasses}/>
                 </div>
             );
         });

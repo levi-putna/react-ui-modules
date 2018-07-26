@@ -9,8 +9,8 @@ import {withKnobs, text, boolean, select} from '@storybook/addon-knobs';
 
 import documentation from './documentation.md';
 
-import Field from './Field';
 import Form from '../Form';
+import TagField from './TagField';
 
 const stories = storiesOf('Form', module);
 
@@ -22,21 +22,19 @@ class StatefulForm extends Form {
   
   render() {
     return (
-        <Field 
+        <TagField 
           name={text('name', 'test-field')}
           type={text('type', 'email')}
           value={this.state.value}
-          hint={text('hint', 'This is an example hint')}
+          hint={text('hint', 'start typing tag, hit "Enter" to finish')}
           error={text('error', '')}
-          placeholder={text('placeholder', 'This is an example placeholder')}
-          label={text('label', 'Example Label')}
+          placeholder={text('placeholder', 'Start adding tag')}
+          label={text('label', 'Tag Example')}
           onChange={(name, value, touched) => {
               action('onChange');
               this.setState({value});
           }}
           data-test-id={text('data-test-id', 'example-test-id')}
-          prepend={text('prepend', '$')}
-          append={text('append', '.00')}
           loading={boolean('loading', false)} 
           disabled={boolean('disabled', false)}
       />
@@ -44,6 +42,6 @@ class StatefulForm extends Form {
   }
 }
 
-stories.add('Field', withNotes(documentation)(() => (
+stories.add('TagField', withNotes(documentation)(() => (
   <StatefulForm />
 )))

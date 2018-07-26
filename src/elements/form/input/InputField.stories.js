@@ -20,10 +20,11 @@ class StatefulForm extends Form {
   
     render() {
       return (
-        <InputField 
+          <InputField 
             name={text('name', 'test-field')}
             type={text('type', 'email')}
             value={this.state.value}
+            hint={text('hint', 'This is an example hint')}
             error={text('error', '')}
             placeholder={text('placeholder', 'This is an example placeholder')}
             label={text('label', 'Example Label')}

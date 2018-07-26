@@ -4,15 +4,13 @@ Field is the base class for all form fields. It provides a lot of shared functio
 If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful to extend one of the other base subclasses as they provides additional base functionality.
 
 Fields or one of its subclasses components are normally used within the context of a Form. See the Form component docs for examples on how to put those together. If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful to extend one of the other Field subclasses as they may provides additional or better baseline functionality.
-
-See `<InputField />` if you wish to use a as it. It has the same API as field but if a ready to use in app component.
   
  <h2>Usage</h2>
 ~~~js
 
-import {Field} from 'react-ui-modules';
+import {InputField} from 'react-ui-modules';
 
-<Field 
+<InputField 
   name="test-field"
   type="email"
   value={this.props.value}

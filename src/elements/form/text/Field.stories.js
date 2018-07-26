@@ -9,7 +9,7 @@ import {withKnobs, text, boolean, select} from '@storybook/addon-knobs';
 
 import documentation from './documentation.md';
 
-import Field from './Field';
+import Field from '../field/Field';
 import Form from '../Form';
 
 const stories = storiesOf('Form', module);
@@ -44,6 +44,6 @@ class StatefulForm extends Form {
   }
 }
 
-stories.add('Field', withNotes(documentation)(() => (
+stories.add('TextField', withNotes(documentation)(() => (
   <StatefulForm />
 )))

@@ -130,7 +130,7 @@ export default class Form extends Component {
      * @param error the error message object to set.
      */
     setErrors(error) {
-        const hasErrors = (error.constructor === Array && Object.keys(error).length > 0 );
+        const hasErrors = (error && Object.keys(error).length > 0 );
 
         this.setState(
             {
