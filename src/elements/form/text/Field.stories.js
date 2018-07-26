@@ -9,8 +9,8 @@ import {withKnobs, text, boolean, select} from '@storybook/addon-knobs';
 
 import documentation from './documentation.md';
 
-import Field from '../field/Field';
 import Form from '../Form';
+import TextField from './TextField';
 
 const stories = storiesOf('Form', module);
 
@@ -22,7 +22,7 @@ class StatefulForm extends Form {
   
   render() {
     return (
-        <Field 
+        <TextField 
           name={text('name', 'test-field')}
           type={text('type', 'email')}
           value={this.state.value}
@@ -35,8 +35,6 @@ class StatefulForm extends Form {
               this.setState({value});
           }}
           data-test-id={text('data-test-id', 'example-test-id')}
-          prepend={text('prepend', '$')}
-          append={text('append', '.00')}
           loading={boolean('loading', false)} 
           disabled={boolean('disabled', false)}
       />
