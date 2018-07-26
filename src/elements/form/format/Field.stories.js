@@ -11,6 +11,7 @@ import documentation from './documentation.md';
 
 import Field from '../field/Field';
 import Form from '../Form';
+import NumberFormat from './NumberFormat';
 
 const stories = storiesOf('Form', module);
 
@@ -24,12 +25,12 @@ class StatefulForm extends Form {
     return (
         <Field 
           name={text('name', 'test-field')}
-          type={text('type', 'email')}
+          format={new NumberFormat()}
           value={this.state.value}
-          hint={text('hint', 'This is an example hint')}
+          hint={text('hint', 'Numbers only')}
           error={text('error', '')}
           placeholder={text('placeholder', 'This is an example placeholder')}
-          label={text('label', 'Example Label')}
+          label={text('label', 'Number Formatter Example')}
           onChange={(name, value, touched) => {
               action('onChange');
               this.setState({value});
