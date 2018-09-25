@@ -9,7 +9,7 @@
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "yarn build",
+    "prepublish": "yarn build; yarn build:storybook ",
     "build": "node scripts/production.js",
     "build:storybook": "build-storybook -o docs"
   },
