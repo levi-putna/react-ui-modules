@@ -55,6 +55,8 @@ import {Calendar} from "./components/calendar";
 // Dropdown
 import {Dropdown} from './elements/dropdown';
 
+import {DateTime} from './components/date';
+
 /**
  * All components that will be published as part of this module must be exposed
  * via module.exports. They can then be access as part of the mocule using es5
@@ -115,5 +117,6 @@ module.exports = {
 
     Carousel,
 
-    Calendar
+    Calendar,
+    DateTime
 };

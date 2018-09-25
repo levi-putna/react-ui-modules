@@ -1,13 +1,17 @@
-<h2>Description</h2>
+**Note:** It is not recommended to use this component directly. Instead, it is much more common and recommended to use one of the field subclasses like InputField.
+
+## Description
+
 Field is the base class for all form fields. It provides a lot of shared functionality to all field subclasses (for example labels, simple validation, clearing and tab index management), but is rarely used directly. Instead, it is much more common and recommended to use one of the field subclasses like InputField.
 
-If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful to extend one of the other base subclasses as they provides additional base functionality.
+If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful to extend one of the other base subclasses as they provides additional or better baseline functionality.
 
-Fields or one of its subclasses components are normally used within the context of a Form. See the Form component docs for examples on how to put those together. If you wish to create your own Field subclasses you can extend this class, though it is sometimes more useful to extend one of the other Field subclasses as they may provides additional or better baseline functionality.
+Field or one of its subclasses components are normally used within the context of a Form. See the Form component docs for examples on how to put those together.
 
-See `<InputField />` if you wish to use a as it. It has the same API as field but if a ready to use in app component.
+See `<InputField />` for a application ready input field. It has the same API as Field but has has been setup as a user ready component.
   
- <h2>Usage</h2>
+## Usage
+
 ~~~js
 
 import {Field} from 'react-ui-modules';

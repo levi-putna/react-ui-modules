@@ -1,3 +1,3 @@
 export {default as Modal} from './Modal';
-export {default as WindowModal} from './WindowModal';
-export {default as SideModal} from './SideModal';
+export {default as WindowModal} from './window/WindowModal';
+export {default as SideModal} from './side/SideModal';

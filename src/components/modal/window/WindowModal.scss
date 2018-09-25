@@ -1,0 +1,68 @@
+@import "config/color";
+@import "config/typography";
+
+.window {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.content {
+  flex: auto;
+  flex-grow: 1;
+  display: flex;
+  height: 100%;
+}
+
+.title {
+  flex: 1;
+  vertical-align: middle;
+  margin: 10px;
+  font-size: 22px;
+  line-height: 1.5;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #4d5c6e;
+  font-weight: 400;
+}
+
+.close {
+  font-family: "Source Sans Pro", sans-serif;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 0;
+
+  &Button {
+    transform: rotate(45deg);
+    display: block;
+    text-align: center;
+    vertical-align: text-top;
+    line-height: 35px;
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+  }
+
+  &:hover {
+    color:#ffffff;
+    background-color: #ff0000;
+  }
+
+  &:active {
+    color:#ffffff;
+    transform: scale(0.9);
+  }
+}

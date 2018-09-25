@@ -2,14 +2,13 @@
   "name": "react-ui-modules",
   "version": "0.0.1-beta-12",
   "description": "A simple set of base components that can be extended to build better UI with less work.",
-  "main": "build/app.index.js",
+  "main": "build/index.js",
   "scripts": {
     "start:dev": "node scripts/development.js",
     "start:storybook": "start-storybook -p 6006",
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "prepublish": "yarn build",
     "build": "node scripts/production.js",
     "build:storybook": "build-storybook -o docs"
@@ -63,6 +62,7 @@
   "dependencies": {
     "attr-accept": "^1.1.0",
     "classnames": "^2.2.5",
+    "inputmask-core": "^2.2.0",
     "moment": "^2.19.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",

@@ -150,6 +150,7 @@ export default class TagField extends Field {
 
         return (
             <div className={inputClasses}>
+
                 {(tags && tags.length > 0) ? <div data-test-id={'tags-' + testId}  className={style.tags}>{tags}</div> : null}
 
                 <input type="text"
@@ -163,6 +164,7 @@ export default class TagField extends Field {
                        className={style.input}
                        disabled={disabled}
                 />
+                
             </div>
         );
     }

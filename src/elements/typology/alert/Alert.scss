@@ -72,12 +72,12 @@
 
 .alert {
   &Success {
-    background-color: $color-green;
-    border-color: $color-green-dark;
+    background-color: #42b983;
+    border-color: #8dbe37;
     color: #ffffff;
 
     &:before {
-      background-color: $color-green-dark;
+      background-color: #8dbe37;
     }
   }
 

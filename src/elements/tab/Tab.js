@@ -29,8 +29,8 @@ export default class Tab extends Component {
     };
 
     static defaultProps = {
-      active: 0,
-      align: Tab.align.bottom,
+        active: 0,
+        align: Tab.align.top,
         loading: false,
         className: null,
         labelClassName: null
@@ -39,7 +39,6 @@ export default class Tab extends Component {
     state = {
         active: this.props.active
     };
-
 
     renderLabels() {
         let {children, labelClassName} = this.props;
